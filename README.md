@@ -1,5 +1,5 @@
-🟩 HAPPY PATH – 1
-(Sin descuento, sin Planeta Seguros, sin teleselección, 1 sola cuenta)
+🟩 CASO 1 – OFI
+(Sin descuento, NO Planeta Seguros, 1 cuenta, sin tele-selección)
 
 1. LOGIN / ACCESO
 a. Si se accede desde el portal de contratación, se localiza al cliente mediante el buscador.
@@ -14,7 +14,7 @@ b. Si aparece mensaje de validación KO, se pulsa ENTENDIDO.
 
 VALIDACIÓN KO → FALTA DE DATOS MÍNIMOS BDP → DETENER FLUJO.
 
-(En este happy path, NO aparece la pantalla de validación KO.)
+(En este caso, NO aparece la pantalla de validación KO.)
 
 3. DOCUMENTACIÓN GDPR (PRECONTRACTUAL – TOMADOR)
 a. Se muestra la pantalla de información básica de protección de datos del tomador.
@@ -34,24 +34,42 @@ b. Se completan los campos obligatorios:
 
 Documento
 
+Nombre y apellidos
+
 Fecha de nacimiento
 
 Profesión
 
-Invalidez previa
+Pregunta de invalidez (NO en este caso)
 
-Importe adeudado
+Importe de deuda (entre 60.000 € y 4.000.000 €)
 
 Email del asegurado
+
+Fecha de efecto (obligatoria)  
 c. Se pulsa CONTINUAR.
+
+VALIDACIONES:
+
+Si deuda fuera de rango → mensaje de error → no avanzar.
+
+Si invalidez = Sí → en oferta no aparecerá IPA (no aplica en este caso).
 
 6. PASO 2 DE 10 – PRECIOS (SIN DESCUENTO PROMOCIONAL)
 a. Se muestran los datos de la oferta.
-b. Se muestran las coberturas incluidas.
+b. Se muestran las coberturas incluidas:
+
+Fallecimiento por cualquier causa
+
+Invalidez permanente absoluta (aplica porque invalidez = NO)
 c. Se muestran las propuestas de capital (75%, 100%, 120%).
-d. En este happy path, NO aparece descuento promocional.
-e. El gestor selecciona una oferta (normalmente 100%).
-f. Se pulsa CONTINUAR.
+d. Se muestra el combo de actualización de capital (0–5%, por defecto 3%).
+e. En este caso, NO aparece descuento promocional.
+f. El gestor selecciona una oferta.
+g. Se pulsa CONTINUAR.
+
+NOTA:  
+En esta pantalla aparece el precio mensual “Con Planeta Seguros”, pero solo como información, no como selección.
 
 7. ENVÍO AUTOMÁTICO DE DOCUMENTACIÓN GDPR (ASEGURADO)
 a. Tras seleccionar oferta, aparece modal indicando que se ha enviado la documentación precontractual al asegurado.
@@ -59,21 +77,27 @@ b. En el happy path, se pulsa CONTINUAR A CONTRATACIÓN.
 
 8. PASO 3 DE 10 – CUESTIONARIO DE SALUD DEL ASEGURADO
 a. Se visualiza el cuestionario de salud.
-b. En este happy path, todas las respuestas son NO.
+b. En este caso, todas las respuestas son NO.
 c. Se pulsa CONTINUAR.
 
+KO:  
+Si alguna respuesta fuera SÍ → se activa tele-selección (no aplica en este caso).
+
 9. PASO 3 (ALTERNATIVA) – TELESELECCIÓN Y PRUEBAS MÉDICAS
-(En este happy path NO aplica.)
+(En este caso NO aplica.)
 
 a. Solo aparecería si alguna respuesta del cuestionario es SÍ o si el perfil del asegurado lo requiere.
 b. En este caso, no aparece ninguna pantalla adicional.
 
 10. PASO 4 DE 10 – PLANETA SEGUROS (SELECCIONA “NO”)
-10.1. CAMINO HAPPY PATH – 1
-a. Se muestran las opciones Con Planeta Seguros / Sin Planeta Seguros.
+a. Se muestran las opciones:
+
+Con Planeta Seguros
+
+Sin Planeta Seguros
 b. En este caso, el cliente selecciona NO.
 c. No se aplican beneficios del agrupador.
-d. No se modifica el precio.
+d. No se modifica el precio anual.
 e. Se pulsa CONTINUAR.
 
 11. PASO 5 DE 10 – PERIODICIDAD DE PAGO
@@ -94,14 +118,14 @@ c. Se pulsa CONTINUAR.
 13. PASO 7 DE 10 – APODERADOS (LISTADO DINÁMICO)
 a. El sistema muestra los apoderados vigentes del cliente jurídico.
 b. El listado es dinámico (depende del CIF).
-c. En este happy path, solo uno tiene firma multicanal.
+c. En este caso, solo uno tiene firma multicanal.
 d. Se selecciona ese apoderado.
 e. Se pulsa CONTINUAR.
 
 14. PASO 8 DE 10 – DATOS DE CONTACTO
 a. Se muestran los datos del tomador, apoderado y asegurado.
 b. Se revisan.
-c. En este happy path, no se modifican.
+c. En este caso, no se modifican.
 d. Se pulsa CONTINUAR.
 
 15. PASO 9 DE 10 – RESUMEN
@@ -120,11 +144,11 @@ Cuenta de cargo
 Datos del asegurado
 
 Datos del tomador
-b. En este happy path, el cliente solo tiene UNA cuenta, por lo que no hay selección.
+b. En este caso, el cliente solo tiene UNA cuenta, por lo que no hay selección.
 c. Se pulsa CONTINUAR para pasar al Paso 10 (firma).
 
 16. PASO 10 DE 10 – FIRMA
 a. Se muestra la pantalla de firma.
 b. El apoderado seleccionado tiene firma multicanal.
-c. Se completa la firma digital.
+c. Se completa la firma presencial (OFI).
 d. El proceso finaliza correctamente.
