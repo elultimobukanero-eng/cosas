@@ -1,0 +1,112 @@
+Resumen Completo de Vida PJ
+1. Canales de Operación
+OFI (Oficina):
+El proceso se realiza presencialmente en una sucursal. El gestor introduce los datos junto al cliente y la documentación se imprime y firma físicamente.
+SP (Servicios Personalizados):
+El proceso se realiza de forma remota (gestor remoto, telefónico o digital). La documentación se gestiona digitalmente (envío por email, descarga, firma digital).
+2. Flujo General del Proceso
+Login y acceso:
+Acceso por portal de contratación (búsqueda de cliente) o ADN cliente (cliente ya identificado).
+Validaciones iniciales: si el cliente no es válido, se debe cambiar; si hay solicitud en vuelo, se elimina.
+Segmentación de productos:
+Pantalla inicial invitando a calcular el precio del seguro.
+Módulo GDPR: opciones de impresión (OFI) o gestión digital (SP).
+Modal de impresión y posibilidad de cancelar.
+Datos de riesgo:
+Solo se solicitan los siguientes campos:
+Persona física a asegurar (nombre, NIF, etc.)
+Profesión
+¿Tienes alguna invalidez permanente o estás en trámite? (Sí/No)
+Deuda de la empresa (validación: mínimo 60.000 €, máximo 4.000.000 €, mensaje de error si fuera de rango)
+Fecha de efecto (inicio del seguro)
+Todos los campos deben ser validados y, si se vuelve atrás, deben aparecer precumplimentados.
+Oferta:
+Visualización de modalidades de seguro disponibles.
+Selección de oferta (normalmente la de menor importe).
+Bloque de datos de la oferta muestra los datos introducidos.
+Botón “Modificar” permite volver a datos de riesgo y retarificar.
+Si se responde “Sí” a invalidez, la cobertura de Invalidez permanente absoluta no se muestra.
+Actualización de capital: combo con valores 0%-5% (por defecto 3%), con tooltip explicativo.
+Periodicidad de pago:
+Selección de modalidad de pago (ejemplo: anual).
+Introducción de fecha de efecto.
+Cuenta de cargo:
+Visualización y selección de cuenta(s) disponible(s) para el cargo.
+Tele-selección y cuestionario (si aplica):
+Si el flujo lo requiere, se realiza tele-selección y cuestionario.
+Validación de respuestas; si alguna es incorrecta, el sistema lo indica.
+Resumen:
+Visualización del resumen de la operación antes de finalizar.
+Documentación:
+Visualización de la documentación para leer, descargar e imprimir/firma.
+En OFI: impresión y firma presencial.
+En SP: envío digital y firma digital.
+Finalización:
+El proceso finaliza correctamente y se realiza la captura para el E2E automático.
+3. Casuísticas Principales
+Se han definido 6 casuísticas para cubrir los principales caminos del flujo, diferenciando canal OFI y SP, y contemplando la recuperación de procesos:
+CASO 1 (OFI): Cliente sin descuento, no selecciona Planeta Seguro, una cuenta, no realiza tele-selección.
+CASO 2 (OFI): Cliente con descuento, selecciona Planeta Seguro, varias cuentas, realiza tele-selección.
+CASO 3 (OFI): Cliente con descuento, no selecciona Planeta Seguro, una cuenta, no realiza tele-selección.
+CASO 4 (SP): Cliente con descuento, selecciona Planeta Seguro, varias cuentas, realiza tele-selección.
+CASO 5 (SP): Cliente sin descuento, no selecciona Planeta Seguro, una cuenta, no realiza tele-selección.
+CASO 6 (OFI o SP): Retomar proceso iniciado y no finalizado (recuperación según plazos GDPR).
+Cada caso está documentado paso a paso, con validaciones, selección de cuentas, gestión de documentación y firma según canal.
+4. Reglas de Negocio y Validaciones
+Importe de deudas:
+Solo se aceptan valores entre 60.000 € y 4.000.000 €.
+Si el importe está fuera de rango, se muestra mensaje de error y no se permite avanzar.
+Pregunta de invalidez:
+Campo deshabilitado hasta introducir documento válido.
+Si se responde “Sí”, no se muestra la cobertura de Invalidez permanente absoluta en la oferta.
+Datos precumplimentados:
+Si se vuelve atrás, los datos ya introducidos deben aparecer rellenados.
+Botón “Modificar” en oferta:
+Permite volver a datos de riesgo y retarificar.
+Si se cambia el asegurado, se resetean los demás datos.
+Si se cambia el email, se debe reenviar consentimiento GDPR.
+Actualización de capital:
+Combo con valores 0%-5%, por defecto 3%, con tooltip explicativo.
+Coberturas:
+Fallecimiento por cualquier causa (tooltip explicativo).
+Invalidez permanente absoluta (solo si el cliente no tiene invalidez).
+5. Plazos de GDPR (Recuperación de tarea)
+Si se llega a la pantalla de oferta y:
+NO se genera PDF de proyecto: 10 días.
+SÍ se genera PDF y no se inicia contratación: 10 días desde el primer proyecto.
+Si se inicia la contratación y:
+No se ha realizado cuestionario ni TS: 10 días desde el primer proyecto.
+No se firma solicitud pero se ha realizado cuestionario o TS online: 90 días desde el primer proyecto.
+Si se firma solicitud y:
+NO se genera carta al buzón en SSRR: 90 días desde la fecha de efecto.
+SÍ se genera carta al buzón en SSRR: 120 días desde la fecha de efecto.
+El sistema debe impedir la recuperación si se ha superado el plazo GDPR correspondiente.
+6. Diferencias entre canales
+OFI:
+Documentación se imprime y firma presencialmente.
+El gestor acompaña al cliente en todo el proceso.
+SP:
+Documentación se gestiona digitalmente (envío, descarga, firma digital).
+El cliente puede completar pasos de forma remota.
+7. Ejemplo de estructura de caso de prueba
+Cada caso se documenta con pasos claros, por ejemplo:
+LOGIN
+a. Acceso y validaciones iniciales.
+SEGMENTACIÓN DE PRODUCTOS
+a. Visualización y avance por GDPR.
+DATOS DE RIESGO
+a. Relleno de campos clave y validaciones.
+OFERTA
+a. Selección y comprobaciones.
+PERIODICIDAD DE PAGO
+a. Selección de modalidad y fecha.
+CUENTA DE CARGO
+a. Selección de cuenta.
+(Si aplica) TELESELECCIÓN Y CUESTIONARIO
+a. Respuestas y validaciones.
+RESUMEN
+a. Revisión final.
+DOCUMENTACIÓN
+a. Firma y finalización.
+ 
+Este resumen cubre todos los detalles funcionales, de negocio y de validación necesarios para entender y automatizar el flujo de Vida PJ, así como para entrenar a otra IA o formar a nuevos miembros del equipo. Si necesitas el desarrollo detallado de cada caso, ejemplos de test o diagramas, indícalo y lo amplío.
