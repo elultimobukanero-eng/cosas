@@ -13,7 +13,6 @@ a. El sistema ejecuta validaciones automáticas sobre el cliente (datos BDP, doc
 b. Si aparece mensaje de validación KO, se pulsa ENTENDIDO.
 
 VALIDACIÓN KO → FALTA DE DATOS MÍNIMOS BDP → DETENER FLUJO.
-
 (En este caso, NO aparece la pantalla de validación KO.)
 
 3. DOCUMENTACIÓN GDPR (PRECONTRACTUAL – TOMADOR)
@@ -31,37 +30,27 @@ b. Se pulsa CALCULAR PRECIO para iniciar el flujo de 10 pasos.
 5. PASO 1 DE 10 – DATOS DEL SEGURO (ASEGURADO)
 a. Se visualiza el formulario con los datos del asegurado.
 b. Se completan los campos obligatorios:
-
-Documento
-
-Nombre y apellidos
-
-Fecha de nacimiento
-
-Profesión
-
-Pregunta de invalidez (NO en este caso)
-
-Importe de deuda (entre 60.000 € y 4.000.000 €)
-
-Email del asegurado
-
-Fecha de efecto (obligatoria)  
+•	Documento del asegurado
+•	Profesión
+•	Pregunta de invalidez (NO en este caso)
+•	Importe de deuda (entre 60.000 € y 4.000.000 €)
+•	Fecha de efecto (obligatoria)  
 c. Se pulsa CONTINUAR.
 
 VALIDACIONES:
-
 Si deuda fuera de rango → mensaje de error → no avanzar.
-
 Si invalidez = Sí → en oferta no aparecerá IPA (no aplica en este caso).
 
 6. PASO 2 DE 10 – PRECIOS (SIN DESCUENTO PROMOCIONAL)
 a. Se muestran los datos de la oferta.
+•	Documento del asegurado
+•	Profesión
+•	Pregunta de invalidez
+•	Importe de deuda 
+•	Fecha de efecto
 b. Se muestran las coberturas incluidas:
-
-Fallecimiento por cualquier causa
-
-Invalidez permanente absoluta (aplica porque invalidez = NO)
+•	Fallecimiento por cualquier causa
+•	Invalidez permanente absoluta (aplica porque invalidez = NO)
 c. Se muestran las propuestas de capital (75%, 100%, 120%).
 d. Se muestra el combo de actualización de capital (0–5%, por defecto 3%).
 e. En este caso, NO aparece descuento promocional.
@@ -85,16 +74,14 @@ Si alguna respuesta fuera SÍ → se activa tele-selección (no aplica en este c
 
 9. PASO 3 (ALTERNATIVA) – TELESELECCIÓN Y PRUEBAS MÉDICAS
 (En este caso NO aplica.)
-
 a. Solo aparecería si alguna respuesta del cuestionario es SÍ o si el perfil del asegurado lo requiere.
 b. En este caso, no aparece ninguna pantalla adicional.
 
 10. PASO 4 DE 10 – PLANETA SEGUROS (SELECCIONA “NO”)
+(AUN NO IMPLEMENTADO.)
 a. Se muestran las opciones:
-
-Con Planeta Seguros
-
-Sin Planeta Seguros
+•	Con Planeta Seguros
+•	Sin Planeta Seguros
 b. En este caso, el cliente selecciona NO.
 c. No se aplican beneficios del agrupador.
 d. No se modifica el precio anual.
@@ -108,10 +95,8 @@ d. Se pulsa CONTINUAR.
 
 12. PASO 6 DE 10 – BENEFICIARIOS
 a. Se muestra la designación fija del producto:
-
-Banco Santander como beneficiario prioritario.
-
-Tomador como beneficiario residual.
+•	Banco Santander como beneficiario prioritario.
+•	Tomador como beneficiario residual.
 b. No es editable.
 c. Se pulsa CONTINUAR.
 
@@ -128,22 +113,16 @@ b. Se revisan.
 c. En este caso, no se modifican.
 d. Se pulsa CONTINUAR.
 
+
 15. PASO 9 DE 10 – RESUMEN
 a. Se muestra un resumen completo de:
-
-Datos del seguro
-
-Datos de contratación
-
-Planeta Seguros (marcado como NO)
-
-Periodicidad
-
-Cuenta de cargo
-
-Datos del asegurado
-
-Datos del tomador
+•	Datos del seguro
+•	Datos de contratación
+•	Planeta eguros (marcado como NO)
+•	Periodicidad
+•	Cuenta de cargo
+•	Datos del asegurado
+•	Datos del tomador
 b. En este caso, el cliente solo tiene UNA cuenta, por lo que no hay selección.
 c. Se pulsa CONTINUAR para pasar al Paso 10 (firma).
 
