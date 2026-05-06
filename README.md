@@ -1,83 +1,108 @@
-🟩 CASO 1 – OFI (actualizado con cuestionario completo)
-Sin descuento · NO Planeta Seguros · 1 cuenta · Sin tele-selección  
-Deuda: 80.000 €
+ESTO PARA LO DE LA PROFESIOENS EXCLUISDA
+PASO 1 DE 10 – DATOS DEL SEGURO (ASEGURADO)
+a. Se visualiza el formulario con los datos del asegurado.
+b. Se completan los campos obligatorios:
 
-PASO 3 DE 10 – CUESTIONARIO DE SALUD DEL ASEGURADO
-a. Se visualiza el cuestionario de salud con las siguientes preguntas y respuestas del caso:
+Documento del asegurado
 
-¿Has padecido…? → NO
+Profesión
 
-¿Has sido sometido…? → NO
+Pregunta de invalidez
 
-¿Tienes prevista alguna revisión…? → NO
+Importe de deuda (sin mínimo ni máximo; valor permitido ≥ 0 €)
 
-¿Estás actualmente en baja laboral? → NO
+Fecha de efecto
 
-¿Padeces alguna minusvalía/discapacidad? → NO
+c. Reglas de negocio aplicables:
 
-¿Tienes previsto ingreso hospitalario? → NO
+Profesiones excluidas: Ama de casa, Rentista, Estudiante, Desempleado.
+Si se selecciona alguna → KO y no se permite continuar.
 
-Peso → 80 kg
+No existe validación de rango para el importe de deuda.
 
-Altura → 180 cm
+Si invalidez = Sí → la cobertura IPA no aparece en la oferta.
 
-¿Fumas? → NO
+d. Se pulsa CONTINUAR.
 
-b. Se pulsa CONTINUAR.
-c. Todas las respuestas son NO → No se activa tele-selección.
 
-🟩 CASO 2 – OFI (actualizado con cuestionario completo)
-Con descuento · SÍ Planeta Seguros · Varias cuentas · Con tele-selección  
-Deuda: 120.000 €
 
-PASO 3 DE 10 – CUESTIONARIO DE SALUD DEL ASEGURADO
-a. Se visualiza el cuestionario de salud con las siguientes preguntas y respuestas del caso:
 
-¿Has padecido…? → NO
 
-¿Has sido sometido…? → SÍ
 
-¿Tienes prevista alguna revisión…? → NO
 
-¿Estás actualmente en baja laboral? → NO
 
-¿Padeces alguna minusvalía/discapacidad? → NO
+ERROR ENANOS GORDOS
+⚠️ KO técnico actual – Validación inexistente en peso/altura
+El formulario permite introducir valores incoherentes o invertidos en los campos:
 
-¿Tienes previsto ingreso hospitalario? → NO
+Peso (Kg)
 
-Peso → 80 kg
+Altura (cm)
 
-Altura → 180 cm
+Ejemplo: 180 kg / 80 cm.
 
-¿Fumas? → SÍ, 5 cigarrillos/día
+Actualmente no existe ninguna validación que detecte estos errores.
 
-b. Se pulsa CONTINUAR.
-c. Alguna respuesta es SÍ → Se activa tele-selección (Paso 3 alternativo).
+Consecuencia:  
+El sistema envía los valores al servicio médico de AEGON, que devuelve un error técnico prolongado (timeout o KO interno).
+Este error no está controlado en el front, por lo que el gestor no recibe un mensaje claro y el flujo queda bloqueado.
 
-🟩 CASO 3 – OFI (actualizado con cuestionario completo)
-Con descuento · NO Planeta Seguros · 1 cuenta · Sin tele-selección  
-Deuda: 150.000 €
+Pendiente de implementación:  
+Añadir validaciones de coherencia para evitar el envío de datos imposibles al servicio de AEGON.
 
-PASO 3 DE 10 – CUESTIONARIO DE SALUD DEL ASEGURADO
-a. Se visualiza el cuestionario de salud con las siguientes preguntas y respuestas del caso:
 
-¿Has padecido…? → NO
 
-¿Has sido sometido…? → NO
 
-¿Tienes prevista alguna revisión…? → NO
 
-¿Estás actualmente en baja laboral? → NO
 
-¿Padeces alguna minusvalía/discapacidad? → NO
 
-¿Tienes previsto ingreso hospitalario? → NO
 
-Peso → 80 kg
+ESTO PARA LO DE SI FUMAS O NO
+Si la respuesta es NO:
 
-Altura → 180 cm
+El formulario no muestra ningún campo adicional.
 
-¿Fumas? → NO
+Si la respuesta es SÍ:
 
-b. Se pulsa CONTINUAR.
-c. Todas las respuestas son NO → No se activa tele-selección.
+Se despliega el campo obligatorio “¿Cuántos cigarrillos fumas al día?”
+
+El gestor debe introducir un valor numérico (uds/día).
+
+Este dato se envía al servicio médico de AEGON.
+
+
+
+
+
+
+PREREQUISITIS
+🟦 CASO 1 – SIN TELESELECCIÓN
+Prerrequisitos del usuario
+Edad del asegurado: 40 años
+
+Número de cuentas: 1 cuenta
+(porque es el caso más simple y no queremos bifurcaciones adicionales)
+
+Capital: 80.000 €
+→ ≤ 50 años + ≤ 150.000 € → Declaración de salud  
+→ NO Teleselección
+
+🟦 CASO 2 – CON TELESELECCIÓN
+Prerrequisitos del usuario
+Edad del asegurado: 45 años
+
+Número de cuentas: 2 cuentas
+(para que este caso tenga más riqueza funcional)
+
+Capital: 200.000 €
+→ ≤ 50 años + >150.000 € y ≤300.000 € → Teleselección
+
+🟦 CASO 3 – CON TELESELECCIÓN + PRUEBAS MÉDICAS
+Prerrequisitos del usuario
+Edad del asegurado: 48 años
+
+Número de cuentas: 1 cuenta
+(para que el foco esté en TS+PM y no en la gestión de cuentas)
+
+Capital: 350.000 €
+→ ≤ 50 años + >300.000 € → Teleselección + Pruebas Médicas
