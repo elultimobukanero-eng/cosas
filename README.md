@@ -1,5 +1,6 @@
-🟩 CASO 2 – OFI
-(Con descuento, SÍ Planeta Seguros, varias cuentas, con tele-selección)
+🟩 CASO 3 – OFI
+(Con descuento, NO Planeta Seguros, 1 cuenta, sin tele-selección)  
+Deuda del caso: 150.000 €
 
 1. LOGIN / ACCESO
 a. Si se accede desde el portal de contratación, se localiza al cliente mediante el buscador.
@@ -12,9 +13,8 @@ SOLICITUD EN VUELO → ELIMINAR.
 a. El sistema ejecuta validaciones automáticas sobre el cliente (datos BDP, documentación mínima, estado del CIF, bloqueos, etc.).
 b. Si aparece mensaje de validación KO, se pulsa ENTENDIDO.
 
-VALIDACIÓN KO → FALTA DE DATOS MÍNIMOS BDP → DETENER FLUJO.
-
-(En este caso, NO aparece la pantalla de validación KO.)
+VALIDACIÓN KO → FALTA DE DATOS MÍNIMOS BDP → DETENER FLUJO.  
+(En este caso, NO aparece KO.)
 
 3. DOCUMENTACIÓN GDPR (PRECONTRACTUAL – TOMADOR)
 a. Se muestra la pantalla de información básica de protección de datos del tomador.
@@ -36,9 +36,9 @@ Documento del asegurado
 
 Profesión
 
-Pregunta de invalidez (NO en este caso)
+Pregunta de invalidez (NO)
 
-Importe de deuda (entre 60.000 € y 4.000.000 €)
+Importe de deuda: 150.000 €
 
 Fecha de efecto (obligatoria)
 
@@ -46,20 +46,20 @@ c. Se pulsa CONTINUAR.
 
 VALIDACIONES:
 
-Si deuda fuera de rango → mensaje de error → no avanzar.
+Si deuda fuera de rango → error.
 
-Si invalidez = Sí → en oferta no aparecerá IPA (no aplica aquí).
+Si invalidez = Sí → en oferta no aparece IPA (no aplica aquí).
 
 6. PASO 2 DE 10 – PRECIOS (CON DESCUENTO PROMOCIONAL)
 a. Se muestran los datos de la oferta:
 
-Documento del asegurado
+Documento
 
 Profesión
 
-Pregunta de invalidez
+Invalidez
 
-Importe de deuda
+Importe de deuda: 150.000 €
 
 Fecha de efecto
 
@@ -69,9 +69,16 @@ Fallecimiento por cualquier causa
 
 Invalidez permanente absoluta
 
-c. Se muestran las propuestas de capital (75%, 100%, 120%).
+c. Se muestran las propuestas de capital:
+
+75% → 112.500 €
+
+100% → 150.000 €
+
+120% → 180.000 €
+
 d. Se muestra el combo de actualización de capital (0–5%, por defecto 3%).
-e. En este caso, SÍ aparece descuento promocional aplicado.  
+e. En este caso, SÍ aparece descuento promocional.  
 f. El gestor selecciona una oferta.
 g. Se pulsa CONTINUAR.
 
@@ -80,32 +87,20 @@ El precio mensual “Con Planeta Seguros” aparece solo como información.
 
 7. ENVÍO AUTOMÁTICO DE DOCUMENTACIÓN GDPR (ASEGURADO)
 a. Tras seleccionar oferta, aparece modal indicando que se ha enviado la documentación precontractual al asegurado.
-b. En este caso, se pulsa CONTINUAR A CONTRATACIÓN.
+b. Se pulsa CONTINUAR A CONTRATACIÓN.
 
 8. PASO 3 DE 10 – CUESTIONARIO DE SALUD DEL ASEGURADO
 a. Se visualiza el cuestionario de salud.
-b. En este caso, alguna respuesta es SÍ, lo que activa tele-selección.
+b. En este caso, todas las respuestas son NO.
 c. Se pulsa CONTINUAR.
 
-9. PASO 3 (ALTERNATIVA) – TELESELECCIÓN Y PRUEBAS MÉDICAS
-a. El sistema solicita:
+KO:  
+Si alguna respuesta fuera SÍ → se activa tele-selección (no aplica en este caso).
 
-Teléfono de contacto
+9. PASO 3 (ALTERNATIVA) – TELESELECCIÓN
+(NO aplica en este caso.)
 
-Fecha disponible
-
-Franja horaria
-
-b. El gestor completa la disponibilidad.
-c. Se pulsa CONTINUAR.
-
-VALIDACIONES:
-
-Si falta algún dato → no permite avanzar.
-
-Si el asegurado no está localizable → KO (no aplica en este caso).
-
-10. PASO 4 DE 10 – PLANETA SEGUROS (SELECCIONA “SÍ”)
+10. PASO 4 DE 10 – PLANETA SEGUROS (SELECCIONA “NO”)
 (AUN NO IMPLEMENTADO EN DEMO, PERO SÍ EN EL FLUJO REAL.)
 
 a. Se muestran las opciones:
@@ -114,9 +109,9 @@ Con Planeta Seguros
 
 Sin Planeta Seguros
 
-b. En este caso, el cliente selecciona SÍ.
-c. Se muestran beneficios del agrupador.
-d. Se confirma la inclusión del seguro en Planeta Seguros.
+b. En este caso, el cliente selecciona NO.
+c. No se aplican beneficios del agrupador.
+d. No se modifica el precio anual.
 e. Se pulsa CONTINUAR.
 
 11. PASO 5 DE 10 – PERIODICIDAD DE PAGO
@@ -138,7 +133,7 @@ c. Se pulsa CONTINUAR.
 13. PASO 7 DE 10 – APODERADOS (LISTADO DINÁMICO)
 a. El sistema muestra los apoderados vigentes del cliente jurídico.
 b. El listado es dinámico (depende del CIF).
-c. En este caso, hay varios apoderados, pero solo uno tiene firma multicanal.
+c. En este caso, solo uno tiene firma multicanal.
 d. Se selecciona ese apoderado.
 e. Se pulsa CONTINUAR.
 
@@ -155,19 +150,18 @@ Datos del seguro
 
 Datos de contratación
 
-Planeta Seguros (marcado como SÍ)
+Planeta Seguros (marcado como NO)
 
 Periodicidad
 
-Varias cuentas disponibles
+Cuenta de cargo (solo una)
 
 Datos del asegurado
 
 Datos del tomador
 
-b. En este caso, el cliente tiene VARIAS cuentas, por lo que el sistema muestra un selector.
-c. El gestor selecciona la cuenta deseada.
-d. Se pulsa CONTINUAR para pasar al Paso 10 (firma).
+b. Como solo hay UNA cuenta, no aparece selector.
+c. Se pulsa CONTINUAR para pasar al Paso 10 (firma).
 
 16. PASO 10 DE 10 – FIRMA
 a. Se muestra la pantalla de firma.
