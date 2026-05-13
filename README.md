@@ -1,78 +1,47 @@
-CASO 1 — Solo 75% + Sin Teleselección
-Prerrequisitos
-Edad: 40 años
+🟩 PASO 10 DE 10 – AVISO (Pop‑up de subida de documentación)
+a. Al pulsar CONTINUAR en el resumen, se muestra un pop‑up con:
 
-Nº de cuentas: 1
+Título: “Aviso”
 
-Deuda: 20.000 €
+Texto:
+“Se procederá a subir los documentos al buzón de contratos para que el cliente los firme.
+Si estás seguro de avanzar la contratación, presiona el botón Contratar.”
 
-Por qué solo aparece el 75%
-Con deuda de 20.000 €, los porcentajes quedan así:
+b. Se muestran dos botones:
 
-75% = 15.000 € → válido
+Cancelar → vuelve al Resumen
 
-100% = 20.000 € → fuera de rango interno del producto
+Contratar → continúa a la pantalla de Formalización y Firma
 
-120% = 24.000 € → fuera de rango interno del producto
+c. El gestor pulsa CONTRATAR para avanzar al siguiente paso.
 
-El producto invalida 100% y 120% por límites internos, por lo que solo queda disponible el 75%.
+🟩 PANTALLA FINAL – FORMALIZACIÓN Y FIRMA (SP)
+a. Se muestra una pantalla informativa con:
 
-Por qué va SIN TS
-El capital asegurado final es 15.000 €.
-Para esta edad, los capitales bajos no requieren Teleselección.
+Título: “Has completado el proceso”
 
-➡️ Resultado final: Solo 75% + Sin TS
+Subtítulo:
+“Recuerda que el cliente deberá firmar la documentación en el buzón de contratos.
+La validez de dichos documentos será de X días.”
 
-CASO 2 — 75% + 100% + Teleselección
-Prerrequisitos
-Edad: 45 años
+b. Se muestran los siguientes datos:
 
-Nº de cuentas: 2
+Nombre del producto
 
-Deuda: 150.000 €
+Precio total anualizado
 
-Por qué aparecen 75% y 100%
-Con deuda de 150.000 €, los porcentajes quedan así:
+(Si hubiera descuento: comparativa antes/después y detalle de impuestos incluidos)
 
-75% = 112.500 € → válido
+c. Se muestra el botón VER DETALLE, que despliega:
 
-100% = 150.000 € → válido
+Nombre del asegurado
 
-120% = 180.000 € → fuera de rango interno
+Periodicidad de pago
 
-El producto invalida el 120%, por lo que solo se muestran 75% y 100%.
+Datos de cobro (cuenta de cargo)
 
-Por qué va por TS
-El capital asegurado final es 150.000 €.
-Este importe está en el rango donde el producto activa Teleselección.
+Datos de contacto (dirección, teléfono, email)
 
-➡️ Resultado final: 75% + 100% + TS
+d. Se muestra el Opinador del proceso.
 
-CASO 3 — 75% + 100% + Teleselección + Pruebas Médicas
-Prerrequisitos
-Edad: 48 años
-
-Nº de cuentas: 2
-
-Deuda: 300.000 €
-
-Por qué aparecen 75% y 100%
-Con deuda de 300.000 €, los porcentajes quedan así:
-
-75% = 225.000 € → válido
-
-100% = 300.000 € → válido
-
-120% = 360.000 € → fuera de rango interno
-
-El 120% queda fuera de rango, por lo que solo se muestran 75% y 100%.
-
-Por qué va por TS + PM
-El capital asegurado final es 300.000 € (o superior según reglas internas).
-Este importe supera el umbral donde el producto exige:
-
-Teleselección
-
-Pruebas Médicas adicionales
-
-➡️ Resultado final: 75% + 100% + TS + PM
+e. Se pulsa FINALIZAR para volver a la pantalla de selección de cliente.
