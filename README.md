@@ -1,1 +1,1 @@
-san-modal-container-open        = css:san-modal-container.open
+san-ending-button-init-contract        = css:san-ending-button#init-contract-phase-button
