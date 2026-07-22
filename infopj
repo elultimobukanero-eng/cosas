@@ -1,112 +1,37 @@
-Resumen Completo de Vida PJ
-1. Canales de Operación
-OFI (Oficina):
-El proceso se realiza presencialmente en una sucursal. El gestor introduce los datos junto al cliente y la documentación se imprime y firma físicamente.
-SP (Servicios Personalizados):
-El proceso se realiza de forma remota (gestor remoto, telefónico o digital). La documentación se gestiona digitalmente (envío por email, descarga, firma digital).
-2. Flujo General del Proceso
-Login y acceso:
-Acceso por portal de contratación (búsqueda de cliente) o ADN cliente (cliente ya identificado).
-Validaciones iniciales: si el cliente no es válido, se debe cambiar; si hay solicitud en vuelo, se elimina.
-Segmentación de productos:
-Pantalla inicial invitando a calcular el precio del seguro.
-Módulo GDPR: opciones de impresión (OFI) o gestión digital (SP).
-Modal de impresión y posibilidad de cancelar.
-Datos de riesgo:
-Solo se solicitan los siguientes campos:
-Persona física a asegurar (nombre, NIF, etc.)
-Profesión
-¿Tienes alguna invalidez permanente o estás en trámite? (Sí/No)
-Deuda de la empresa (validación: mínimo 60.000 €, máximo 4.000.000 €, mensaje de error si fuera de rango)
-Fecha de efecto (inicio del seguro)
-Todos los campos deben ser validados y, si se vuelve atrás, deben aparecer precumplimentados.
-Oferta:
-Visualización de modalidades de seguro disponibles.
-Selección de oferta (normalmente la de menor importe).
-Bloque de datos de la oferta muestra los datos introducidos.
-Botón “Modificar” permite volver a datos de riesgo y retarificar.
-Si se responde “Sí” a invalidez, la cobertura de Invalidez permanente absoluta no se muestra.
-Actualización de capital: combo con valores 0%-5% (por defecto 3%), con tooltip explicativo.
-Periodicidad de pago:
-Selección de modalidad de pago (ejemplo: anual).
-Introducción de fecha de efecto.
-Cuenta de cargo:
-Visualización y selección de cuenta(s) disponible(s) para el cargo.
-Tele-selección y cuestionario (si aplica):
-Si el flujo lo requiere, se realiza tele-selección y cuestionario.
-Validación de respuestas; si alguna es incorrecta, el sistema lo indica.
-Resumen:
-Visualización del resumen de la operación antes de finalizar.
-Documentación:
-Visualización de la documentación para leer, descargar e imprimir/firma.
-En OFI: impresión y firma presencial.
-En SP: envío digital y firma digital.
-Finalización:
-El proceso finaliza correctamente y se realiza la captura para el E2E automático.
-3. Casuísticas Principales
-Se han definido 6 casuísticas para cubrir los principales caminos del flujo, diferenciando canal OFI y SP, y contemplando la recuperación de procesos:
-CASO 1 (OFI): Cliente sin descuento, no selecciona Planeta Seguro, una cuenta, no realiza tele-selección.
-CASO 2 (OFI): Cliente con descuento, selecciona Planeta Seguro, varias cuentas, realiza tele-selección.
-CASO 3 (OFI): Cliente con descuento, no selecciona Planeta Seguro, una cuenta, no realiza tele-selección.
-CASO 4 (SP): Cliente con descuento, selecciona Planeta Seguro, varias cuentas, realiza tele-selección.
-CASO 5 (SP): Cliente sin descuento, no selecciona Planeta Seguro, una cuenta, no realiza tele-selección.
-CASO 6 (OFI o SP): Retomar proceso iniciado y no finalizado (recuperación según plazos GDPR).
-Cada caso está documentado paso a paso, con validaciones, selección de cuentas, gestión de documentación y firma según canal.
-4. Reglas de Negocio y Validaciones
-Importe de deudas:
-Solo se aceptan valores entre 60.000 € y 4.000.000 €.
-Si el importe está fuera de rango, se muestra mensaje de error y no se permite avanzar.
-Pregunta de invalidez:
-Campo deshabilitado hasta introducir documento válido.
-Si se responde “Sí”, no se muestra la cobertura de Invalidez permanente absoluta en la oferta.
-Datos precumplimentados:
-Si se vuelve atrás, los datos ya introducidos deben aparecer rellenados.
-Botón “Modificar” en oferta:
-Permite volver a datos de riesgo y retarificar.
-Si se cambia el asegurado, se resetean los demás datos.
-Si se cambia el email, se debe reenviar consentimiento GDPR.
-Actualización de capital:
-Combo con valores 0%-5%, por defecto 3%, con tooltip explicativo.
-Coberturas:
-Fallecimiento por cualquier causa (tooltip explicativo).
-Invalidez permanente absoluta (solo si el cliente no tiene invalidez).
-5. Plazos de GDPR (Recuperación de tarea)
-Si se llega a la pantalla de oferta y:
-NO se genera PDF de proyecto: 10 días.
-SÍ se genera PDF y no se inicia contratación: 10 días desde el primer proyecto.
-Si se inicia la contratación y:
-No se ha realizado cuestionario ni TS: 10 días desde el primer proyecto.
-No se firma solicitud pero se ha realizado cuestionario o TS online: 90 días desde el primer proyecto.
-Si se firma solicitud y:
-NO se genera carta al buzón en SSRR: 90 días desde la fecha de efecto.
-SÍ se genera carta al buzón en SSRR: 120 días desde la fecha de efecto.
-El sistema debe impedir la recuperación si se ha superado el plazo GDPR correspondiente.
-6. Diferencias entre canales
-OFI:
-Documentación se imprime y firma presencialmente.
-El gestor acompaña al cliente en todo el proceso.
-SP:
-Documentación se gestiona digitalmente (envío, descarga, firma digital).
-El cliente puede completar pasos de forma remota.
-7. Ejemplo de estructura de caso de prueba
-Cada caso se documenta con pasos claros, por ejemplo:
-LOGIN
-a. Acceso y validaciones iniciales.
-SEGMENTACIÓN DE PRODUCTOS
-a. Visualización y avance por GDPR.
-DATOS DE RIESGO
-a. Relleno de campos clave y validaciones.
-OFERTA
-a. Selección y comprobaciones.
-PERIODICIDAD DE PAGO
-a. Selección de modalidad y fecha.
-CUENTA DE CARGO
-a. Selección de cuenta.
-(Si aplica) TELESELECCIÓN Y CUESTIONARIO
-a. Respuestas y validaciones.
-RESUMEN
-a. Revisión final.
-DOCUMENTACIÓN
-a. Firma y finalización.
- 
-Este resumen cubre todos los detalles funcionales, de negocio y de validación necesarios para entender y automatizar el flujo de Vida PJ, así como para entrenar a otra IA o formar a nuevos miembros del equipo. Si necesitas el desarrollo detallado de cada caso, ejemplos de test o diagramas, indícalo y lo amplío.
+Aquí tienes **todo el texto de la imagen pasado a texto**, Javier — limpio, ordenado y sin perder nada:
+
+---
+
+Voy a sacar los tramos exactos con líneas  
+para responder con precisión qué aporta cada fuente: CSV limpio, tomadores, domicilios y primas.
+
+Reviewed 4 files
+
+Queda una última comprobación: sacar las líneas exactas de las piezas clave para que la conclusión quede trazable.
+
+Searched for multiple regex patterns and text in files
+
+No alcanzan con solo el CSV y la limpieza actual.
+
+Con lo que hay en Beneficiarios_final_v2.csv¹ y en alertas_fase1.py² sí puedes montar una base de beneficiarios por póliza, porque el CSV trae la clave de póliza y certificado y la limpieza interna resolvió identidad con customer_360. La cabecera ya trae compañía, ramo, producto, póliza y certificado en Beneficiarios_final_v2.csv¹, y la limpieza enriquece solo con tipo de persona, cod_pers, documento y nombre desde customer_360 en alertas_fase1.py³. No están ni tomador, ni domicilio, ni primas.
+
+Para lo que falta están dos cruces con lago:
+
+1. Tomador por póliza. Hay que cruzar la póliza con bospoliza y luego con pers_contrato filtrando tipo_inter = 4 para sacar el tomador. Eso está en alertas_fase1.py⁴ y alertas.py¹¹. Si no, no puedes contar en cuántas pólizas un cliente sale como tomador ni detectar el cruce Tomás–David / David–Tomás.
+
+2. Prima y ventana temporal. El filtro de importe y último año requiere bospoliza o fecha de efecto/emisión y prima. Está en alertas_fase1.py¹² y alertas.py¹³. Hay hasta 2 años de diferencia entre el año 1 y año 100.000.
+
+3. Domicilio. Se enriquece desde Customer_360 con domicilio; país por país. Para guardar consistencia, el domicilio normalizado se logra mejor en lago, pero el tipo de domicilio persona en el CSV no está. Eso está en dicc.py⁴⁹⁹.
+
+Conclusión: el cruce exacto no se logra solo con CSV + limpieza. El mínimo necesario es cruzar con lago para tomador, prima y domicilio. El CSV se usa como base de beneficiarios. La única limitación real es el parsing de texto. Esos casos se pueden derivar de forma fiable salvo que haya explícitos errores de matching en el modelo de parsing.
+
+Lo que sigue más natural es:
+
+1. Que el diseño actual se cierre en Spark SQL o PySpark.  
+2. Que se implemente una nueva función de alertas fase 1 con los filtros de 1 año y 100.000.
+
+Reviewed 5 todos
+
+---
+
+Si quieres, puedo convertirlo en un **informe**, un **resumen ejecutivo**, o un **diagrama de flujo**. ¿Quieres que lo pase a formato técnico o a documentación clara para onboarding?
